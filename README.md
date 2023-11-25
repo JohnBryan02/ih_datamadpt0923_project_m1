@@ -1,123 +1,67 @@
-<p align="left"><img src="https://cdn-images-1.medium.com/max/184/1*2GDcaeYIx_bQAZLxWM4PsQ@2x.png"></p>
+# Data Project README file
 
-# __ih_datamadpt0923_project_m1__
+### :raising_hand: **Nombre** 
+Mis primeros spaguettis
 
-Ironhack Madrid - Data Analytics Part Time - Sep 2023 - Project Module 1
+### :baby: **Estado**
+Ironhack Data Analytics Primer Proyecto Beta
 
-## **Data:**
+### :running: **Utilidad**
+Este proyecto consiste en obtener como resultado el bicimad o bicipark más cercano en función de los centros culturales de Madrid. Aparte de esta información también se añade la disponibilidad de las bicis actuales que hay en la estación cercana y un enlace directo a google maps para que el usuario pueda dirigirse a la estación.
 
-There are 2 main datasources:
-
-- **CSV Files.** The datasets contains information from the BiciMAD stations including their location (i.e.: latitude / longitude). You may find the `.csv` files in the __data__ folder.
-
-- **API REST.** We will use the API REST from the [Portal de datos abiertos del Ayuntamiento de Madrid](https://datos.madrid.es/nuevoMadrid/swagger-ui-master-2.2.10/dist/index.html?url=/egobfiles/api.datos.madrid.es.json#/), where you can find the __Catálogo de datos__ with more than 70 datasets. The API endpoint is `https://datos.madrid.es/egob`. 
-
-> __IMPORTANT:__ These are the body corresponding to every dataset:
-
-- Alana: `/catalogo/209426-0-templos-catolicas.json`
-
-- Alberto: `/catalogo/209434-0-templos-otros.json`
-
-- Ana: `/catalogo/202162-0-instalaciones-accesibles-municip.json`
-
-- Andrew: `/catalogo/202180-0-instalaciones-accesibles-no-muni.json`
-
-- Carlos: `/catalogo/202311-0-colegios-publicos.json`
-
-- Elena: `/catalogo/203166-0-universidades-educacion.json`
-
-- Guille: `/catalogo/200215-0-instalaciones-deportivas.json`
-
-- John: `/catalogo/200304-0-centros-culturales.json`
-
-- Natalia: `/catalogo/201000-0-embajadas-consulados.json`
-
-- Rodrigo: `/catalogo/300356-0-monumentos-ciudad-madrid.json`
-
-- Sil: `/catalogo/208844-0-monumentos-edificios.json`
-
-- Silvia: `/catalogo/300614-0-centros-educativos.json`
-
-- Tere: `/catalogo/200761-0-parques-jardines.json`
-
-- Tomás: `/catalogo/212808-0-espacio-deporte.json`
+### :computer: **Herramientas**
+Python, visual studio, jupyter.
 
 
+### :wrench: **Configuración**
+Librerias que debes tener para que este programa funcione.
+- import pandas as pd
+- import requests
+- import bs4
+- from shapely.geometry import Point
+- import geopandas as gpd
+- import argparse
+- from fuzzywuzzy import fuzz
+- from fuzzywuzzy import process
+- import os
+- from dotenv import load_dotenv
+- import argparse
+- import papermill
 
----
+### :see_no_evil: **Uso**
+Al ejecutar el programa en una terminal se solicitarán dos o tres inputs().
 
-## **Main Challenge:**
+- Primera opción(dos inputs): "Todos" + "bicimad o bicipark" esto generará un dataframe completo con centros culturales y bicimads o biciparks. 
+Esto generara un dataframe completo con centros culturales y bicimads o biciparks
+- Segunda opción(tres inputs): "Centro cultural" + "bicimad o bicipark" + "Si o No" esto ultimo nos dara un enlace a google maps si lo deseamos.
+Esta opción generará un data frame de una única fila con el centro cultural seleccionado y el transporte elegido. Además, tendrás la opción de obtener un enlace a Google Maps.
 
-You must create a Python App (**Data Pipeline**) that allow their potential users to find the nearest BiciMAD station to a set of places of interest using the methods included in the module `geo_calculations.py`. The output table should look similar to:
+Problema: tiempo de ejecución demasiado largo.
 
-| Place of interest | Type of place (*) | Place address | BiciMAD station | Station location |
-|---------|----------|-------|------------|----------|
-| Auditorio Carmen Laforet (Ciudad Lineal)   | Centros Culturales | Calle Jazmin, 46 | Legazpi | Calle Bolívar, 3 |
-| Centro Comunitario Casino de la Reina | Centros municipales de enseñanzas artísticas | Calle Casino, 3 | Chamartin | Calle Rodríguez Jaén, 40 |
-| ...     | ...            | ...        | ...      | ...        |
-> __(*)__ This correspond to the type of place assigned to you. 
+### :file_folder: **Estructura de carpetas**
+```
+└── ih_datamadpt0923_project_m1
+    ├── .ipynb_checkpoints
+    ├── _wip_
+    └── data
+    │   ├── final_filas_libm_live.csv
+    │   └── final_filas_libp_live.csv
+    ├── modules
+    │   ├── funciones.py
+    │   └── geocalculations.py     
+    ├── notebooks
+    │   └── importing_exporting_dfs.ipynb
+    ├── LICENSE
+    ├── .env
+    ├── README.md
+    └── main.py
+```
 
 
-**Your project must meet the following requirements:**
+### :shit: **ToDo**
+Mejora del tiempo de ejecución.
 
-- It must be contained in a GitHub repository which includes a README file that explains the aim and content of your code. You may follow the structure suggested [here](https://github.com/potacho/data-project-template).
-
-- __It must create, at least, a `.csv` file including the requested table (i.e. Main Challenge).__ Alternatively, you may create an image, pdf, plot or any other output format that you may find convenient. You may also send your output by e-mail, upload it to a cloud repository, etc. 
-
-- It must provide, at least, two options for the final user to select when executing using `argparse`: **(1)** To get the table for every 'Place of interest' included in the dataset (or a set of them), **(2)** To get the table for a specific 'Place of interest' imputed by the user.
-
-
-**Additionally:**
-
-- You must prepare a 4 minutes presentation (ppt, canva, etc.) to explain your project (Instructors will provide further details about the content of the presentation).
-
-- The last slide of your presentation must include your candidate for the **'Ironhack Data Code Beauty Pageant'**. 
-
+### :love_letter: **Contact info**
+John Bryan xxxxxxxx@gmail.com
 
 ---
-
-### **Bonus 1:**
-
-You may include in your table the availability of bikes in each station.
-
----
-
-### **Bonus 2:**
-
-You may improve the usability of your app by using [FuzzyWuzzy](https://pypi.org/project/fuzzywuzzy/).
-
----
-
-### **Bonus 3:**
-
-Feel free to enrich your output data with any data you may find relevant (e.g.: wiki info for every place of interest) or connect to the [BiciMAD API](https://mobilitylabs.emtmadrid.es/) and update bikes availability realtime or find a better way to calculate distances...there's no limit!!!
-
---- 
-
-
-## **Project Main Stack**
-
-- [Requests](https://requests.readthedocs.io/)
-
-- [Pandas](https://pandas.pydata.org/pandas-docs/stable/reference/index.html)
-
-- Module `geo_calculations.py`
-
-- [Argparse](https://docs.python.org/3.9/library/argparse.html)
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
- 
-
